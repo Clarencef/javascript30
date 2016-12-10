@@ -2,10 +2,14 @@ var path = require('path');
 var webpack = require('webpack');
 
 module.exports = {
-    entry: './es6/main.js',
+    entry: {
+        main: './es6/main.js',
+        day1Js: './es6/day1.js'
+    },
     output: {
         path: __dirname + "/bundle",
-        filename: 'bundle.js'
+        filename: '[name].js',
+        publicPath: __dirname + "/bundle/"
     },
     module: {
         loaders: [{
