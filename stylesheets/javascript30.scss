@@ -1,4 +1,11 @@
 @import "~normalize.css/normalize.css";
+
+:root {
+  --baseColor: #ffffff;
+  --spacing: 10px;
+  --blur: 5px;
+}
+
 img {
   height: 100vh;
   width: 100vw;
@@ -14,7 +21,6 @@ img {
   justify-content: middle;
 }
 
-// day1 css
 .day1-background {
   background: url('../images/day1.jpg');
 }
@@ -22,6 +28,20 @@ img {
 .day2-background {
   background: url('../images/day2.jpg');
 }
+
+.day3-background {
+  background: #222222;
+}
+
+.text-white {
+  color: white;
+}
+
+.text-center {
+  text-align: center;
+}
+
+// day1 css
 
 .musickey-container {
   width: 100%;
@@ -104,4 +124,22 @@ img {
     border-radius: 5px;
     background: black;
   }
+}
+
+.day3-demoImg {
+  margin-top: 20px;
+  max-width: 100%;
+  object-fit: contain;
+  padding: var(--spacing);
+  background: var(--baseColor);
+  filter: blur(var(--blur));
+  // -webkit-filter: blur(var(--blur));
+}
+
+label {
+  margin-right: 5px;
+}
+
+input {
+  margin-right: 20px;
 }

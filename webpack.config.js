@@ -22,7 +22,7 @@ module.exports = {
             },
         }, {
             test: /\.scss$/,
-            loaders: ["style-loader", "css-loader", "postcss-loader", "sass-loader"]
+            loader: 'style!css!autoprefixer!sass'
         }, {
             test: /\.(jpe?g|png|gif|svg)$/i,
             loaders: [
