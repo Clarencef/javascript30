@@ -4,7 +4,8 @@ var webpack = require('webpack');
 module.exports = {
     entry: {
         main: './es6/main.js',
-        day1Js: './es6/day1.js'
+        day1Js: './es6/day1.js',
+        day2Js: './es6/day2.js'
     },
     output: {
         path: __dirname + "/bundle",
