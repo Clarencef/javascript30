@@ -5,7 +5,8 @@ module.exports = {
     entry: {
         main: './es6/main.js',
         day1Js: './es6/day1.js',
-        day2Js: './es6/day2.js'
+        day2Js: './es6/day2.js',
+        day3Js: './es6/day3.js',
     },
     output: {
         path: __dirname + "/bundle",
@@ -21,7 +22,7 @@ module.exports = {
             },
         }, {
             test: /\.scss$/,
-            loaders: ["style-loader", "css-loader", "sass-loader"]
+            loaders: ["style-loader", "css-loader", "postcss-loader", "sass-loader"]
         }, {
             test: /\.(jpe?g|png|gif|svg)$/i,
             loaders: [
