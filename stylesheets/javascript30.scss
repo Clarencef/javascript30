@@ -1,5 +1,4 @@
 @import "~normalize.css/normalize.css";
-
 :root {
   --baseColor: #ffffff;
   --spacing: 10px;
@@ -42,7 +41,6 @@ img {
 }
 
 // day1 css
-
 .musickey-container {
   width: 100%;
   text-align: center;
@@ -149,14 +147,14 @@ table {
   border-collapse: collapse;
 }
 
-table th{
+table th {
   background: #222222;
   color: #ffffff;
   padding: 5px;
   border: 1px solid white;
 }
 
-table td{
+table td {
   padding: 5px;
   border: 1px solid #222222;
 }
@@ -168,3 +166,72 @@ table td{
   padding: 15px;
 }
 
+.panels {
+  display: flex;
+  min-height: 100vh;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  font-size: 20px;
+  color: white;
+  transition: 0.3s;
+  will-change: transform;
+  transform: translateZ(0);
+  &.open {
+    flex: 5;
+    font-size: 40px;
+  }
+  &.active {
+    >* {
+      &:first-child {
+        transform: translateY(0%);
+      }
+      &:last-child {
+        transform: translateY(0%);
+      }
+    }
+  }
+  >* {
+    display: flex;
+    flex: 1 0 auto;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+    &:first-child {
+      transform: translateY(-100%);
+    }
+    &:last-child {
+      transform: translateY(100%);
+    }
+  }
+}
+
+.panel1 {
+  background: url(../images/day5/day5-4.jpg) no-repeat;
+  background-size: cover;
+}
+
+.panel2 {
+  background: url(../images/day5/day5-2.jpg) no-repeat;
+  background-size: cover;
+}
+
+.panel3 {
+  background: url(../images/day5/day5-3.jpg) no-repeat;
+  background-size: cover;
+}
+
+.panel4 {
+  background: url(../images/day5/day5-1.jpg) no-repeat;
+  background-size: cover;
+}
+
+.panel5 {
+  background: url(../images/day5/day5-5.jpg) no-repeat;
+  background-size: cover;
+}
