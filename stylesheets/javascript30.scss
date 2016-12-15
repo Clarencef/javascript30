@@ -11,6 +11,13 @@ html {
   box-sizing: border-box;
 }
 
+html,
+body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
 *,
 *:before,
 *:after {
@@ -24,14 +31,22 @@ img {
   width: 100vw;
 }
 
+.container {
+  display: block;
+  width: 100vw;
+  min-height: 100%;
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
 .flex-container {
   display: flex;
   flex-flow: column;
   justify-content: center;
   width: 100vw;
-  height: 100vh;
+  min-height: 100%;
+  height: 100%;
   background-size: cover;
-  justify-content: middle;
 }
 
 .day1-background {
@@ -83,11 +98,11 @@ img {
 .clock-face {
   display: flex;
   position: relative;
-  justify-content: center;
-  align-items: center;
   margin: 0 auto;
   width: 200px;
   height: 200px;
+  justify-content: center;
+  align-items: center;
   &:before {
     position: absolute;
     z-index: 1;
@@ -111,7 +126,6 @@ img {
     z-index: 1;
     background: black;
     transform-origin: 100% 50%;
-    // transition:all 0.3s;
   }
   .hour {
     width: 25%;
@@ -138,6 +152,7 @@ img {
   }
 }
 
+// day3 css
 .day3-demoImg {
   margin-top: 20px;
   max-width: 100%;
@@ -156,6 +171,7 @@ input {
   margin-right: 20px;
 }
 
+// day4 css
 table {
   margin: 0 auto;
   border-collapse: collapse;
@@ -180,6 +196,7 @@ table td {
   padding: 15px;
 }
 
+// day5 css
 .panels {
   display: flex;
   min-height: 100vh;
@@ -250,11 +267,19 @@ table td {
   background-size: cover;
 }
 
+// day6 css
 .search_form {
   width: 50%;
   max-width: 600px;
+  padding: 20px;
   margin: 0 auto;
+  background: #dddddd;
+  border-radius: 5px;
   text-align: center;
+  .search_block,
+  .search_input {
+    flex: 1 0 100%;
+  }
   .search_input {
     width: 75%;
     padding: 15px;
@@ -262,13 +287,37 @@ table td {
   }
   .place_lists {
     padding: 0;
-    margin: 0;
+    margin: 10px 0 0 6px;
     width: 75%;
-    margin-left: 12px;
     list-style: none;
     li {
+      display: flex;
+      position: relative;
+      justify-content: space-between;
+      padding: 17px;
+      margin-top: 10px;
       width: 100%;
       background: white;
+      border-radius: 3px;
+      &:before {
+        position: absolute;
+        content: '';
+        top: 0;
+        left: 0;
+        width: 5px;
+        height: 100%;
+        background: rgb(255, 211, 46);
+        border-radius: 3px 0 0 3px;
+      }
+      .hl {
+        background: rgb(255, 211, 46);
+      }
+    }
+    .list_placeholder {
+      color: #dddddd;
+      &:before {
+        background: rgba(255, 211, 46, .5);
+      }
     }
   }
   button {
@@ -276,6 +325,7 @@ table td {
     -ms-progress-appearance: none;
     -webkit-appearance: none;
     appearance: none;
+    outline: none;
     background: orange;
     border: none;
     color: white;
