@@ -3,12 +3,12 @@ var webpack = require('webpack');
 
 module.exports = {
     entry: {
-        day1: './es6/day1.js',
-        day2: './es6/day2.js',
-        day3: './es6/day3.js',
-        day4: './es6/day4.js',
-        day5: './es6/day5.js',
-        day6: './es6/day6.js'
+        day1:      './es6/day1.js',
+        day2:      './es6/day2.js',
+        day3:      './es6/day3.js',
+        day4_day7: './es6/day4_day7.js',
+        day5:      './es6/day5.js',
+        day6:      './es6/day6.js'
     },
     output: {
         path: __dirname + "/bundle",

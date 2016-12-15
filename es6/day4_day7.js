@@ -66,20 +66,20 @@ const flavours = ['Chocolate Chip', 'Kulfi', 'Caramel Praline', 'Chocolate', 'Bu
 
 const people = ['Beck, Glenn', 'Becker, Carl', 'Beckett, Samuel', 'Beddoes, Mick', 'Beecher, Henry', 'Beethoven, Ludwig', 'Begin, Menachem', 'Belloc, Hilaire', 'Bellow, Saul', 'Benchley, Robert', 'Benenson, Peter', 'Ben-Gurion, David', 'Benjamin, Walter', 'Benn, Tony', 'Bennington, Chester', 'Benson, Leana', 'Bent, Silas', 'Bentsen, Lloyd', 'Berger, Ric', 'Bergman, Ingmar', 'Berio, Luciano', 'Berle, Milton', 'Berlin, Irving', 'Berne, Eric', 'Bernhard, Sandra', 'Berra, Yogi', 'Berry, Halle', 'Berry, Wendell', 'Bethea, Erin', 'Bevan, Aneurin', 'Bevel, Ken', 'Biden, Joseph', 'Bierce, Ambrose', 'Biko, Steve', 'Billings, Josh', 'Biondo, Frank', 'Birrell, Augustine', 'Black Elk', 'Blair, Robert', 'Blair, Tony', 'Blake, William'];
 
-function createTd(sourceArr,elemToInsert) {
-  const htmlString = sourceArr.reduce((sum,item) => {
+function createTd(sourceArr, elemToInsert) {
+  const htmlString = sourceArr.reduce((sum, item) => {
     return sum += `<tr><td>${item.first}</td><td>${item.last}</td><td>${item.year}</td><td>${item.passed}</td></tr>`
-  },"");
+  }, "");
   elemToInsert.innerHTML = htmlString;
-  return htmlString; 
-} 
+  return htmlString;
+}
 
 // 1. filter the list of inventors for those who were born in the 1500's
 const born1500 = inventors.filter((inventor, i) => {
   return inventor.year >= 1500 && inventor.year < 1600;
 });
 const InsertElem1 = document.querySelector('.table1_body');
-createTd(born1500,InsertElem1);
+createTd(born1500, InsertElem1);
 
 
 // 2.give us an array of the inventors first and last names
@@ -94,7 +94,7 @@ const sortAge = inventors.sort((prev, next) => {
   return prev.year - next.year;
 });
 const InsertElem2 = document.querySelector('.table2_body');
-createTd(sortAge,InsertElem2);
+createTd(sortAge, InsertElem2);
 
 
 // 4. how many years did all the inventors live?
@@ -109,7 +109,7 @@ const sortByLived = inventors.sort((prev, next) => {
   return (next.passed - next.year) - (prev.passed - prev.year);
 });
 const InsertElem3 = document.querySelector('.table3_body');
-createTd(sortByLived,InsertElem3);
+createTd(sortByLived, InsertElem3);
 
 // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
 // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
@@ -143,12 +143,74 @@ console.table(sortByName);
 // 8. Reduce Exercise
 // Sum up the instances of each of these
 const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck'];
-const countAppearTime = data.reduce((sum,item)=> {
-  if(!sum[item]) {
+const countAppearTime = data.reduce((sum, item) => {
+  if (!sum[item]) {
     sum[item] = 0;
   }
   sum[item]++;
   return sum;
-},{});
+}, {});
 
 console.log(countAppearTime);
+
+
+const people2 = [{
+  name: 'Wes',
+  year: 1988
+}, {
+  name: 'Kait',
+  year: 1986
+}, {
+  name: 'Irv',
+  year: 1970
+}, {
+  name: 'Lux',
+  year: 2015
+}];
+
+const comments = [{
+  text: 'Love this!',
+  id: 523423
+}, {
+  text: 'Super good',
+  id: 823423
+}, {
+  text: 'You are the best',
+  id: 2039842
+}, {
+  text: 'Ramen in my fav food ever',
+  id: 123523
+}, {
+  text: 'Nice Nice Nice!',
+  id: 542328
+}];
+
+// Some and Every Checks
+// Array.prototype.some() // is at least one person 19?
+const isAdult = people2.some( person => {
+  const currentYear = (new Date()).getFullYear();
+  return currentYear - person.year >=19;
+});
+console.log(isAdult);
+// Array.prototype.every() // is everyone 19?
+const isAllAdult = people2.every( person => {
+  return ((new Date()).getFullYear()) - person.year >= 19;
+})
+console.log(isAllAdult);
+
+// Array.prototype.find()
+// Find is like filter, but instead returns just the one you are looking for
+// find the comment with the ID of 823423
+const comment = comments.find( comment => {
+  return comment.id === 823423;
+})
+console.log(comment);
+
+// Array.prototype.findIndex()
+// Find the comment with this ID
+// delete the comment with the ID of 823423
+const index = comments.findIndex(comment => {
+  return comment.id ===823423;
+})
+comments.splice(index,1);
+console.log(comments);
