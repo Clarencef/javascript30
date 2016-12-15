@@ -7,7 +7,8 @@ module.exports = {
         day2: './es6/day2.js',
         day3: './es6/day3.js',
         day4: './es6/day4.js',
-        day5: './es6/day5.js'
+        day5: './es6/day5.js',
+        day6: './es6/day6.js'
     },
     output: {
         path: __dirname + "/bundle",

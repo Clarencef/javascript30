@@ -1,0 +1,30 @@
+import '../stylesheets/javascript30.scss';
+import 'whatwg-fetch';
+
+const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
+
+const cities = [];
+const placeLists = document.querySelector('.place_lists');
+const searchInput =  document.querySelector('.search_input');
+console.log(placeLists,searchInput);
+
+fetch(endpoint)
+  .then(response => response.json())
+  .then(data => cities.push(...data));
+
+function getMatches(wordToMatch, cities) {
+  return cities.filter((place)=> {
+    const regex = new RegExp(wordToMatch, 'gi');
+    return place.city.match(regex) || place.state.match(regex)
+  });
+} 
+
+function displayMatches() {
+  const matchCities = getMatches(this.value, cities)
+  console.log(matchCities);
+}
+
+searchInput.addEventListener('change',displayMatches);
+
+
+  
